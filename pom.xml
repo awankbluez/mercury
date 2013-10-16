@@ -13,6 +13,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>mercury</name>
+
+    <description>JSF 2.2 &amp; Other JEE 7 Learning Project.</description>
+
     <modules>
         <module>mercury-ear</module>
         <module>mercury-web</module>
