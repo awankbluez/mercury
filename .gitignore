@@ -1,0 +1,5 @@
+/mercury-web/target/
+/mercury-ejb/target/
+/mercury-ear/target/
+/mercury-domain/target/
+/mercury-config/target/

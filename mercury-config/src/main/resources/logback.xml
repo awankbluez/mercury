@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="5 seconds" debug="true">
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--         On Windows machines setting withJansi to true enables ANSI
+        color code interpretation by the Jansi library. This requires
+        org.fusesource.jansi:jansi:1.8 on the class path.  Note that
+        Unix-based operating systems such as Linux and Mac OS X
+        support ANSI color codes by default. 
+        -->
+        <!--<withJansi>true</withJansi>-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%-50(%date{dd-MMM-yyyy;HH:mm:ss.SSS} - [%thread]) [%highlight(%-5level)] |IP:%X{req.remoteHost}-U:%X{userId}|  %logger{36}:%line - %msg%n</pattern>    
+        </encoder>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.home}/logs/mercury/mercury.log</file>
+        
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>mercury-%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        
+        <encoder>
+            <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+            <pattern>%-50(%date{dd-MMM-yyyy;HH:mm:ss.SSS} - [%thread]) [%-5level] |IP:%X{req.remoteHost}-XF4:%X{req.xForwardedFor}-U:%X{userId}-AG:%X{req.userAgent}-URL:%X{req.requestURL}| %logger{50}:%line - %msg%n</pattern>
+            <!--</layout>-->
+        </encoder>
+    </appender>
+
+    <!--   <appender name="JDBCAppender" class="org.apache.log4j.jdbc.JDBCAppender">
+       <param name="URL" value="jdbc:postgresql://192.168.1.100:5433/DB_BROMO_BPR"/>
+       <param name="Driver" value="org.postgresql.Driver"/>
+       <param name="User" value="server"/>
+       <param name="Password" value="vinno"/>
+       <layout class="org.apache.log4j.PatternLayout">
+          <param name="ConversionPattern"
+               value="INSERT INTO system_log (userid, systemdate, logger, level, message) VALUES ('%X{userid}', '%d{dd.MM.yyyy HH:mm:ss}', '%C', '%p', '%m')"
+             />
+       </layout>
+    </appender>-->
+
+    <logger name="me.awnkblz.mercury.ejbs" level="DEBUG">
+        
+    </logger>
+    
+    <logger name="me.awnkblz.mercury.web" level="DEBUG">
+        
+    </logger>
+    
+    <logger name="org.hibernate.type" level="TRACE" additivity="false">
+        
+    </logger>
+    
+    <!--<logger name="org.hibernate.jdbc" level="ALL"/>-->
+    <logger name="org.hibernate" level="DEBUG">
+        
+    </logger>
+    
+    <logger name="net.sf.jasperreports" level="WARN">
+        
+    </logger>
+    
+    <logger name="org.primefaces" level="WARN">
+        
+    </logger>
+    
+    <logger name="javax.faces" level="WARN">
+        
+    </logger>
+    
+    <logger name="com.sun.faces" level="WARN">
+        
+    </logger>
+    
+    <logger name="org.apache.commons" level="WARN">
+        
+    </logger>
+    
+    <root level="DEBUG">
+        <appender-ref ref="console" />
+        <appender-ref ref="fileAppender" />
+        <!--<appender-ref ref="JDBCAppender" />-->
+    </root>
+</configuration>

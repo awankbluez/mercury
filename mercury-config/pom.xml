@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>me.awnkblz</groupId>
+        <artifactId>mercury</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>me.awnkblz</groupId>
+    <artifactId>mercury-config</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>mercury-config</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <!--get filtered value to be injected to persistence.xml and glassfish-resource.xml @ src/main/application/META-INF-->
+        <filters>
+            <filter>src/main/resources/filters/filter-${env}.properties</filter> <!-- ${env} default to "development" -->
+        </filters>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
