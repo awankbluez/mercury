@@ -48,6 +48,19 @@
             <artifactId>primefaces-extensions</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!--JSF-->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--JSF-->
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>javax.faces-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>

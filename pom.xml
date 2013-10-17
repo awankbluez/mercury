@@ -101,6 +101,19 @@
                 <artifactId>primefaces-extensions</artifactId>
                 <version>1.0.0</version>
             </dependency>
+
+            <!--JSF-->
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.faces</artifactId>
+                <version>2.2.4</version>
+            </dependency>
+            <!--JSF api-->
+            <dependency>
+                <groupId>javax.faces</groupId>
+                <artifactId>javax.faces-api</artifactId>
+                <version>2.2</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
