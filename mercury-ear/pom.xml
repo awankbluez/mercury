@@ -181,5 +181,15 @@
             <groupId>javax.faces</groupId>
             <artifactId>javax.faces-api</artifactId>
         </dependency>
+
+        <!--apache shiro-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+        </dependency>
     </dependencies>
 </project>
