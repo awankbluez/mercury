@@ -56,15 +56,18 @@
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-web</artifactId>
                             <contextRoot>/mercury</contextRoot>
+                            <unpack>${archive.unpack}</unpack>
                         </webModule>
                         <ejbModule>
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-ejb</artifactId>
+                            <unpack>${archive.unpack}</unpack>
                         </ejbModule>
-                        <ejbModule>
+                        <jarModule>
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-domain</artifactId>
-                        </ejbModule>
+                            <unpack>${archive.unpack}</unpack>
+                        </jarModule>
                         <jarModule>
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-config</artifactId>
@@ -106,7 +109,7 @@
             <groupId>me.awnkblz</groupId>
             <artifactId>mercury-domain</artifactId>
             <scope>provided</scope>
-            <type>ejb</type>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>me.awnkblz</groupId>
@@ -117,9 +120,8 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>mercury-config</artifactId>
-            <version>${project.version}</version>
-            <type>jar</type>
             <scope>provided</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>me.awnkblz</groupId>
@@ -155,6 +157,18 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+
+        <!--primefaces-->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+        </dependency>
+
+        <!--primefaces extension-->
+        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>primefaces-extensions</artifactId>
         </dependency>
     </dependencies>
 </project>

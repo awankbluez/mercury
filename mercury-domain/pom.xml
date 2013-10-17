@@ -10,7 +10,7 @@
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury-domain</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>ejb</packaging>
+    <packaging>jar</packaging>
 
     <name>mercury-domain</name>
 
