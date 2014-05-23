@@ -5,14 +5,17 @@
     <parent>
         <groupId>me.awnkblz</groupId>
         <artifactId>master-pom</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>pom</packaging>
     <name>mercury</name>
+
+    <description>JSF 2.2 &amp; Other JEE 7 Learning Project.</description>
+
     <modules>
         <module>mercury-ear</module>
         <module>mercury-web</module>
@@ -39,6 +42,13 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
+                <artifactId>mercury-web</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>mercury-config</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
@@ -48,7 +58,7 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>mercury-domain</artifactId>
                 <version>${project.version}</version>
-                <type>ejb</type>
+                <type>jar</type>
                 <scope>provided</scope>
             </dependency>
 
@@ -56,19 +66,19 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.0.13</version>
+                <version>1.1.2</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>1.0.13</version>
+                <version>1.1.2</version>
             </dependency>
 
             <!--slf4j-->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.5</version>
+                <version>1.7.7</version>
             </dependency>
 
             <!--Postgresql JDBC Driver-->
@@ -82,7 +92,46 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-entitymanager</artifactId>
-                <version>4.2.6.Final</version>
+                <version>4.3.5.Final</version>
+            </dependency>
+
+            <!--primefaces-->
+            <dependency>
+                <groupId>org.primefaces</groupId>
+                <artifactId>primefaces</artifactId>
+                <version>5.0</version>
+            </dependency>
+
+            <!--primefaces extension-->
+            <dependency>
+                <groupId>org.primefaces.extensions</groupId>
+                <artifactId>primefaces-extensions</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
+            <!--JSF-->
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.faces</artifactId>
+                <version>${jsf.version}</version>
+            </dependency>
+            <!--JSF api-->
+            <dependency>
+                <groupId>javax.faces</groupId>
+                <artifactId>javax.faces-api</artifactId>
+                <version>2.2</version>
+            </dependency>
+
+            <!--apache shiro-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-core</artifactId>
+                <version>1.2.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>1.2.3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -131,7 +180,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.6</version>
+                    <version>2.8</version>
                 </plugin>
 
                 <plugin>
@@ -139,16 +188,19 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.1</version>
                     <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
+                        <source>${java.version.source}</source>
+                        <target>${java.version.source}</target>
                     </configuration>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-ear-plugin</artifactId>
-                    <version>2.8</version>
+                    <version>2.9</version>
                     <configuration>
+                        <applicationId>${project.build.finalName}</applicationId>
+                        <applicationName>${project.build.finalName}</applicationName>
+                        <finalName>mercury</finalName>
                         <defaultLibBundleDir>/lib</defaultLibBundleDir>
                         <skinnyWars>true</skinnyWars>
                         <archive>
@@ -187,6 +239,7 @@
             <id>dev</id>
             <properties>
                 <env>development</env>
+                <archive.unpack>true</archive.unpack>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault> <!--Dev Profile Active By Default-->
@@ -206,6 +259,7 @@
             <id>qa</id>
             <properties>
                 <env>qa</env>
+                <archive.unpack>true</archive.unpack>
             </properties>
         </profile>
 
@@ -213,6 +267,7 @@
             <id>prod</id>
             <properties>
                 <env>production</env>
+                <archive.unpack>false</archive.unpack>
             </properties>
         </profile>
 
@@ -220,6 +275,7 @@
             <id>local</id>
             <properties>
                 <env>local</env>
+                <archive.unpack>false</archive.unpack>
             </properties>
         </profile>
     </profiles>

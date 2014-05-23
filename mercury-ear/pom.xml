@@ -4,12 +4,12 @@
     <parent>
         <artifactId>mercury</artifactId>
         <groupId>me.awnkblz</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury-ear</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>ear</packaging>
 
     <name>mercury-ear</name>
@@ -43,11 +43,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
                 <configuration>
-                    <applicationName>${project.parent.artifactId}</applicationName>
-                    <displayName>${project.parent.artifactId}</displayName>
                     <generateApplicationXml>true</generateApplicationXml>
                     <encoding>${project.build.sourceEncoding}</encoding>
-                    <version>6</version>
                     <defaultLibBundleDir>/lib</defaultLibBundleDir>
                     <skinnyWars>true</skinnyWars>
                     <filtering>true</filtering>
@@ -56,15 +53,18 @@
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-web</artifactId>
                             <contextRoot>/mercury</contextRoot>
+                            <unpack>${archive.unpack}</unpack>
                         </webModule>
                         <ejbModule>
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-ejb</artifactId>
+                            <unpack>${archive.unpack}</unpack>
                         </ejbModule>
-                        <ejbModule>
+                        <jarModule>
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-domain</artifactId>
-                        </ejbModule>
+                            <unpack>${archive.unpack}</unpack>
+                        </jarModule>
                         <jarModule>
                             <groupId>me.awnkblz</groupId>
                             <artifactId>mercury-config</artifactId>
@@ -106,7 +106,7 @@
             <groupId>me.awnkblz</groupId>
             <artifactId>mercury-domain</artifactId>
             <scope>provided</scope>
-            <type>ejb</type>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>me.awnkblz</groupId>
@@ -117,14 +117,12 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>mercury-config</artifactId>
-            <version>${project.version}</version>
-            <type>jar</type>
             <scope>provided</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>me.awnkblz</groupId>
             <artifactId>mercury-web</artifactId>
-            <version>${project.version}</version>
             <type>pom</type>
         </dependency>
 
@@ -155,6 +153,39 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+
+        <!--primefaces-->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+        </dependency>
+
+        <!--primefaces extension-->
+        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>primefaces-extensions</artifactId>
+        </dependency>
+
+        <!--JSF-->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+        </dependency>
+        <!--JSF api-->
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>javax.faces-api</artifactId>
+        </dependency>
+
+        <!--apache shiro-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
         </dependency>
     </dependencies>
 </project>
