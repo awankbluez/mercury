@@ -4,12 +4,12 @@
     <parent>
         <artifactId>mercury</artifactId>
         <groupId>me.awnkblz</groupId>
-        <version>1.0</version>
+        <version>1.1-SNAPSHOT</version>
     </parent>
 
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury-ear</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>ear</packaging>
 
     <name>mercury-ear</name>
@@ -97,19 +97,19 @@
 
     <dependencies>
         <dependency>
-            <groupId>me.awnkblz</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>mercury-ejb</artifactId>
             <scope>provided</scope>
             <type>ejb</type>
         </dependency>
         <dependency>
-            <groupId>me.awnkblz</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>mercury-domain</artifactId>
             <scope>provided</scope>
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>me.awnkblz</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>mercury-web</artifactId>
             <scope>provided</scope>
             <type>war</type>
@@ -121,7 +121,7 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>me.awnkblz</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>mercury-web</artifactId>
             <type>pom</type>
         </dependency>
@@ -145,8 +145,8 @@
 
         <!--Postgresql JDBC Driver-->
         <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>com.impossibl.pgjdbc-ng</groupId>
+            <artifactId>pgjdbc-ng</artifactId>
         </dependency>
 
         <!--hibernate-->
@@ -186,6 +186,12 @@
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-web</artifactId>
+        </dependency>
+        
+        <!--Hikari Connection Pooling-->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
         </dependency>
     </dependencies>
 </project>

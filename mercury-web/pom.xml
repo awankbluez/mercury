@@ -4,12 +4,12 @@
     <parent>
         <artifactId>mercury</artifactId>
         <groupId>me.awnkblz</groupId>
-        <version>1.0</version>
+        <version>1.1-SNAPSHOT</version>
     </parent>
 
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury-web</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>mercury-web</name>

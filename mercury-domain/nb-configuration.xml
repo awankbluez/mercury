@@ -15,5 +15,7 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <netbeans.hint.j2eeVersion>1.7</netbeans.hint.j2eeVersion>
         <netbeans.deploy.on.save>false</netbeans.deploy.on.save>
+        <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>WildFly</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
+        <netbeans.compile.on.save>all</netbeans.compile.on.save>
     </properties>
 </project-shared-configuration>

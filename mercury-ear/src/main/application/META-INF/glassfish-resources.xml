@@ -8,7 +8,7 @@
                           connection-leak-reclaim="false"
                           connection-leak-timeout-in-seconds="0"
                           connection-validation-method="auto-commit"
-                          datasource-classname="org.postgresql.ds.PGSimpleDataSource"
+                          datasource-classname="org.postgresql.ds.PGPoolingDataSource"
                           fail-all-connections="false"
                           idle-timeout-in-seconds="300"
                           is-connection-validation-required="false"
