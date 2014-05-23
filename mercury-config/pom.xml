@@ -5,12 +5,12 @@
     <parent>
         <groupId>me.awnkblz</groupId>
         <artifactId>mercury</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury-config</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>mercury-config</name>
 
     <properties>

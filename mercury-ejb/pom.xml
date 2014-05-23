@@ -4,12 +4,12 @@
     <parent>
         <artifactId>mercury</artifactId>
         <groupId>me.awnkblz</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury-ejb</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>ejb</packaging>
 
     <name>mercury-ejb</name>

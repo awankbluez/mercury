@@ -4,12 +4,12 @@
     <parent>
         <artifactId>mercury</artifactId>
         <groupId>me.awnkblz</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <groupId>me.awnkblz</groupId>
     <artifactId>mercury-ear</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>ear</packaging>
 
     <name>mercury-ear</name>
@@ -43,11 +43,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
                 <configuration>
-                    <applicationName>${project.parent.artifactId}</applicationName>
-                    <displayName>${project.parent.artifactId}</displayName>
                     <generateApplicationXml>true</generateApplicationXml>
                     <encoding>${project.build.sourceEncoding}</encoding>
-                    <version>6</version>
                     <defaultLibBundleDir>/lib</defaultLibBundleDir>
                     <skinnyWars>true</skinnyWars>
                     <filtering>true</filtering>
@@ -126,7 +123,6 @@
         <dependency>
             <groupId>me.awnkblz</groupId>
             <artifactId>mercury-web</artifactId>
-            <version>${project.version}</version>
             <type>pom</type>
         </dependency>
 
